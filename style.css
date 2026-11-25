@@ -6,9 +6,9 @@
 
 :root {
     --bg-paper: #efe9dc;          /* Aged broadsheet newsprint */
-    --bg-recessed: #e3dac8;       /* Recessed editorial box */
+    --bg-recessed: #e4dac7;       /* Recessed editorial sheet / card */
     --ink-primary: #141312;       /* Deep carbon ink */
-    --ink-secondary: #2f2c27;     /* Rich dark reading ink */
+    --ink-secondary: #2b2824;     /* Rich dark reading ink */
     --ink-muted: #585249;         /* Muted newspaper caption gray */
     --accent-crimson: #761212;    /* Editorial red / broadsheet accent */
     --border-strong: #141312;     /* Crisp ink rule */
@@ -67,7 +67,6 @@ body::before {
     background-color: var(--bg-paper);
 }
 
-/* Newspaper top dateline strip */
 .masthead-top {
     display: flex;
     justify-content: center;
@@ -200,7 +199,7 @@ nav a:hover::after {
     width: 94%;
     max-width: 1480px;
     margin: 0 auto;
-    padding: 3rem 0 5rem;
+    padding: 3rem 0 4rem;
     display: grid;
     grid-template-columns: 2.2fr 1fr;
     gap: 3rem;
@@ -446,14 +445,17 @@ nav a:hover::after {
 }
 
 /* ==========================================================================
-   BLOG / FIELD REPORT PAGES (blog1.html, blog2.html, blog3.html)
+   BLOG / FIELD REPORT PAGES — PRINTED BROADSHEET SHEET
    ========================================================================== */
 
 .article-container {
     width: 94%;
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: 3.5rem 0 5rem;
+    max-width: 1080px;
+    margin: 3rem auto 2rem;
+    padding: 3.5rem 5% 4rem;
+    background-color: var(--bg-recessed);
+    border: 1px solid var(--border-strong);
+    box-shadow: 7px 7px 0 var(--border-hairline);
 }
 
 .article-container > .eyebrow {
@@ -479,16 +481,244 @@ nav a:hover::after {
     text-transform: uppercase;
     text-align: center;
     color: var(--ink-muted);
-    padding-bottom: 2rem;
+    padding: 1rem 0;
     margin-bottom: 2.5rem;
     border-top: 1px solid var(--border-hairline);
     border-bottom: 2px solid var(--border-strong);
-    padding-top: 1rem;
 }
 
 /* Archival Photograph Frame */
 .article-image {
-    margin: 0 0 3rem;
-    padding: 14px;
+    max-width: 780px;
+    margin: 0 auto 3rem;
+    padding: 12px;
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-strong);
+}
+
+.article-image img {
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    filter: grayscale(82%) contrast(116%) sepia(10%);
+    transition: filter 0.6s ease;
+}
+
+.article-image:hover img {
+    filter: grayscale(25%) contrast(124%) sepia(6%);
+}
+
+/* Centered Column Sheet for Comfortable Reading */
+.blog-content {
+    max-width: 70ch;
+    margin: 0 auto;
+    font-family: var(--font-body);
+    font-size: 1.32rem;
+    line-height: 1.95;
+    color: var(--ink-secondary);
+}
+
+.blog-content p {
+    margin-bottom: 1.75rem;
+}
+
+/* Editorial Dropcap */
+.blog-content p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 0.78;
+    padding-right: 0.85rem;
+    padding-top: 0.25rem;
+    color: var(--accent-crimson);
+}
+
+/* Sign-off line */
+.blog-content p:last-of-type {
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent-crimson);
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-hairline);
+}
+
+/* Article Footer & Navigation */
+.article-footer {
+    max-width: 70ch;
+    margin: 3.5rem auto 0;
+    padding-top: 2rem;
+    border-top: 3px double var(--border-strong);
+}
+
+.article-footer > p {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-align: center;
+    color: var(--ink-muted);
+    margin-bottom: 1.8rem;
+}
+
+.article-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-hairline);
+}
+
+.article-navigation a {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-primary);
+    background-color: var(--bg-paper);
+    padding: 0.85rem 1.4rem;
+    border: 1.5px solid var(--border-strong);
+    transition: all 0.2s ease;
+}
+
+.article-navigation a:hover {
+    background-color: var(--ink-primary);
+    color: var(--bg-paper);
+}
+
+/* ==========================================================================
+   NEWSPAPER FOOTER
+   ========================================================================== */
+
+footer {
+    width: 94%;
+    max-width: 1480px;
+    margin: 2rem auto 2.5rem;
+    text-align: center;
+    padding: 2.8rem 2rem;
+    border-top: 3px double var(--border-strong);
+    border-bottom: 3px double var(--border-strong);
     background-color: var(--bg-recessed);
-    border:
+    color: var(--ink-muted);
+}
+
+.footer-title {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ink-primary);
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: 0.45rem;
+}
+
+.footer-small {
+    color: var(--accent-crimson);
+    font-weight: 700;
+    margin-top: 0.65rem;
+}
+
+/* Progressive psychological shift in Field Report 003 */
+body.descent {
+    --bg-paper: #e7decb;
+    --bg-recessed: #dbd0ba;
+    --accent-crimson: #7d0e0e;
+}
+
+body.descent .article-container {
+    border-color: #2b1414;
+    box-shadow: 7px 7px 0 rgba(125, 14, 14, 0.22);
+}
+
+body.descent .article-image img {
+    filter: grayscale(95%) contrast(132%) brightness(88%);
+}
+
+body.descent .blog-content p:nth-child(9),
+body.descent .blog-content p:nth-child(10),
+body.descent .blog-content p:nth-child(12),
+body.descent .blog-content p:nth-child(18),
+body.descent .blog-content p:nth-child(22) {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-style: italic;
+    color: var(--accent-crimson);
+    padding-left: 1.35rem;
+    border-left: 3px solid var(--accent-crimson);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 980px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .main-column {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 2px solid var(--border-strong);
+        padding-bottom: 3rem;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
+    .featured-content h2 {
+        padding-right: 0;
+    }
+
+    .featured-content::after {
+        position: static;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 17px;
+    }
+
+    nav {
+        gap: 1.3rem;
+    }
+
+    .report-entry {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+
+    .featured-content,
+    .article-container {
+        padding: 1.75rem 1.25rem;
+        box-shadow: 4px 4px 0 var(--border-hairline);
+    }
+
+    .article-navigation {
+        flex-direction: column;
+    }
+
+    .article-navigation a {
+        width: 100%;
+        text-align: center;
+    }
+}
