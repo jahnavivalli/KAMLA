@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
+/* =====================================
+   COLOUR PALETTE
+===================================== */
+
 :root {
     --background: #211d19;
     --paper: #e8dfcc;
@@ -12,30 +16,56 @@
     --line: #b9aa91;
 }
 
+/* =====================================
+   GENERAL STYLING
+===================================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--background);
     color: var(--paper);
     font-family: 'Lora', Georgia, serif;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 1.9;
 }
 
-/* HEADER */
+a {
+    transition: color 0.2s ease;
+}
 
-header {
+.container {
+    width: 88%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+main {
+    padding: 85px 0;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+header,
+.site-header {
     border-bottom: 1px solid #574b3d;
-    padding: 25px 8%;
+    padding: 35px 5%;
     text-align: center;
 }
 
 .site-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
+    font-size: clamp(34px, 4vw, 54px);
     font-weight: 600;
     letter-spacing: 3px;
     color: var(--paper);
@@ -43,50 +73,51 @@ header {
     text-decoration: none;
 }
 
-.tagline {
-    font-size: 11px;
+.site-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 4vw, 54px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--paper);
+    text-transform: uppercase;
+}
+
+.tagline,
+.site-subtitle {
+    font-size: 14px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--gold);
-    margin-top: 3px;
+    margin-top: 5px;
 }
 
 nav {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
-    gap: 35px;
+    gap: 45px;
     flex-wrap: wrap;
 }
 
 nav a {
     color: var(--paper);
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    transition: color 0.2s;
 }
 
 nav a:hover {
     color: var(--gold);
 }
 
-/* GENERAL LAYOUT */
-
-.container {
-    width: 85%;
-    max-width: 1050px;
-    margin: auto;
-}
-
-main {
-    padding: 65px 0;
-}
+/* =====================================
+   GENERAL ELEMENTS
+===================================== */
 
 .eyebrow {
     color: var(--burgundy);
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 600;
@@ -95,119 +126,138 @@ main {
 .divider {
     border: none;
     border-top: 1px solid var(--line);
-    margin: 25px 0;
+    margin: 30px 0;
 }
 
-/* HOMEPAGE HERO */
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--paper);
+    margin-bottom: 25px;
+}
+
+/* =====================================
+   HOMEPAGE HERO
+===================================== */
 
 .hero {
     background: var(--paper);
     color: var(--ink);
-    padding: 65px 8%;
+    padding: 100px 10%;
     text-align: center;
     border: 1px solid var(--gold);
     outline: 1px solid #574b3d;
     outline-offset: 7px;
+    margin: 10px 0 30px;
 }
 
 .hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 7vw, 76px);
+    font-size: clamp(55px, 7vw, 88px);
     line-height: 1.05;
     font-weight: 500;
-    margin: 15px 0;
+    margin: 25px 0;
 }
 
 .hero p {
-    max-width: 650px;
+    max-width: 780px;
     margin: 15px auto 0;
     color: var(--muted);
-    font-size: 15px;
+    font-size: 20px;
+    line-height: 1.9;
 }
 
 .hero .eyebrow {
     color: var(--burgundy);
 }
 
-/* HOMEPAGE SECTIONS */
-
-.section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
-    font-weight: 500;
-    color: var(--paper);
-    margin-bottom: 20px;
-}
+/* =====================================
+   HOMEPAGE INTRODUCTION
+===================================== */
 
 .introduction {
-    max-width: 760px;
-    margin: 65px auto;
+    max-width: 850px;
+    margin: 100px auto;
     text-align: center;
 }
 
 .introduction p {
     color: #c9bda9;
-    font-size: 15px;
+    font-size: 18px;
+    line-height: 2;
 }
+
+/* =====================================
+   FEATURED INVESTIGATION
+===================================== */
 
 .featured {
     background: var(--paper);
     color: var(--ink);
-    padding: 35px;
-    margin-top: 20px;
+    padding: 55px;
+    margin-top: 25px;
     border-left: 4px solid var(--burgundy);
 }
 
 .featured h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 34px;
+    font-size: 46px;
     font-weight: 600;
-    margin: 8px 0;
+    margin: 15px 0;
 }
 
 .featured p {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 18px;
+    line-height: 1.9;
 }
 
 .read-link {
     display: inline-block;
-    margin-top: 18px;
+    margin-top: 25px;
     color: var(--burgundy);
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
     letter-spacing: 2px;
     text-transform: uppercase;
     border-bottom: 1px solid var(--burgundy);
-    padding-bottom: 3px;
+    padding-bottom: 4px;
 }
 
 .read-link:hover {
     color: var(--ink);
 }
 
-/* BLOG ENTRY LIST */
+/* =====================================
+   FIELD REPORTS
+===================================== */
 
 .entries {
-    margin-top: 65px;
+    margin-top: 110px;
+}
+
+.entries .section-title {
+    margin-bottom: 35px;
 }
 
 .entry {
-    padding: 25px 0;
+    padding: 38px 0;
     border-bottom: 1px solid #574b3d;
 }
 
 .entry h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 31px;
+    font-size: 38px;
     font-weight: 500;
-    margin: 5px 0;
+    margin: 12px 0;
     color: var(--paper);
 }
 
 .entry p {
-    color: #b9aa96;
-    font-size: 14px;
+    color: #c9bda9;
+    font-size: 18px;
+    line-height: 1.8;
 }
 
 .entry .read-link {
@@ -215,20 +265,25 @@ main {
     border-color: var(--gold);
 }
 
-/* INDIVIDUAL BLOG PAGES */
+/* =====================================
+   INDIVIDUAL BLOG PAGES
+===================================== */
 
-.article {
+.article,
+.article-container {
     background: var(--paper);
     color: var(--ink);
-    padding: 55px 8%;
-    max-width: 850px;
-    margin: auto;
+    padding: 70px 9%;
+    width: 88%;
+    max-width: 950px;
+    margin: 75px auto;
     border: 1px solid var(--gold);
 }
 
-.article h1 {
+.article h1,
+.article-container h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(38px, 6vw, 58px);
+    font-size: clamp(44px, 5vw, 68px);
     font-weight: 500;
     line-height: 1.1;
     margin: 12px 0 20px;
@@ -236,157 +291,54 @@ main {
 
 .article-meta {
     color: var(--muted);
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-.article-content {
-    margin-top: 35px;
-    font-size: 15px;
-    line-height: 2;
-}
-
-.article-content p {
-    margin-bottom: 22px;
-}
-
-.article-content h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
-    margin: 35px 0 15px;
-}
-
-.back-link {
-    display: inline-block;
-    color: var(--burgundy);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-top: 35px;
-}
-
-/* FOOTER */
-
-footer {
-    text-align: center;
-    padding: 30px 15px;
-    border-top: 1px solid #574b3d;
-    color: #a99b85;
-    font-size: 11px;
-    letter-spacing: 1px;
-    margin-top: 50px;
-}
-
-footer p + p {
-    margin-top: 5px;
-}
-
-/* MOBILE */
-
-@media (max-width: 650px) {
-    header {
-        padding: 20px 5%;
-    }
-
-    .site-name {
-        font-size: 30px;
-    }
-
-    nav {
-        gap: 15px;
-    }
-
-    nav a {
-        font-size: 10px;
-    }
-
-    .container {
-        width: 90%;
-    }
-
-    main {
-        padding: 45px 0;
-    }
-
-    .hero {
-        padding: 45px 6%;
-    }
-
-    .article {
-        padding: 35px 7%;
-    }
-
-    .entry h3 {
-        font-size: 26px;
-    }
-}
-
-
-/* COMPATIBILITY FOR BLOG PAGES */
-
-.site-header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    color: var(--paper);
-    text-transform: uppercase;
-}
-
-.site-subtitle {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 3px;
-}
-
-.article-container {
-    background: var(--paper);
-    color: var(--ink);
-    padding: 55px 8%;
-    max-width: 850px;
-    width: 85%;
-    margin: 65px auto;
-    border: 1px solid var(--gold);
-}
-
-.article-container h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(38px, 6vw, 58px);
-    font-weight: 500;
-    line-height: 1.1;
-    margin: 12px 0 20px;
-}
+/* Article images */
 
 .article-image {
-    margin-top: 30px;
+    margin-top: 35px;
+    margin-bottom: 25px;
 }
 
 .article-image img {
     display: block;
     width: 100%;
-    max-height: 420px;
+    max-height: 480px;
     object-fit: cover;
 }
 
+/* Article text */
+
+.article-content,
 .blog-content {
     margin-top: 35px;
-    font-size: 15px;
-    line-height: 2;
+    font-size: 19px;
+    line-height: 2.1;
 }
 
+.article-content p,
 .blog-content p {
-    margin-bottom: 22px;
+    margin-bottom: 28px;
 }
+
+.article-content h2,
+.blog-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    margin: 40px 0 18px;
+}
+
+/* Article footer and navigation */
 
 .article-footer {
-    margin-top: 35px;
-    padding-top: 20px;
+    margin-top: 45px;
+    padding-top: 25px;
     border-top: 1px solid var(--line);
     color: var(--muted);
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 2px;
 }
 
@@ -394,22 +346,180 @@ footer p + p {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px;
+    margin-top: 25px;
 }
 
-.article-navigation a {
+.article-navigation a,
+.back-link {
     color: var(--burgundy);
     text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
-@media (max-width: 650px) {
+.article-navigation a:hover,
+.back-link:hover {
+    color: var(--ink);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 35px;
+}
+
+/* =====================================
+   ABOUT SECTION
+===================================== */
+
+.about-container {
+    max-width: 850px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.about-container p {
+    font-size: 18px;
+    line-height: 2;
+    color: #c9bda9;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    text-align: center;
+    padding: 40px 15px;
+    border-top: 1px solid #574b3d;
+    color: #a99b85;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 60px;
+}
+
+footer p + p {
+    margin-top: 8px;
+}
+
+/* =====================================
+   MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 750px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    header,
+    .site-header {
+        padding: 25px 5%;
+    }
+
+    .site-name,
     .site-header h1 {
+        font-size: 32px;
+    }
+
+    .tagline,
+    .site-subtitle {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    main {
+        padding: 50px 0;
+    }
+
+    .hero {
+        padding: 60px 7%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .section-title {
+        font-size: 38px;
+    }
+
+    .introduction {
+        margin: 65px auto;
+    }
+
+    .introduction p {
+        font-size: 16px;
+    }
+
+    .featured {
+        padding: 30px;
+    }
+
+    .featured h3 {
+        font-size: 34px;
+    }
+
+    .featured p {
+        font-size: 16px;
+    }
+
+    .entries {
+        margin-top: 75px;
+    }
+
+    .entry {
+        padding: 30px 0;
+    }
+
+    .entry h3 {
         font-size: 30px;
     }
 
+    .entry p {
+        font-size: 16px;
+    }
+
+    .article,
     .article-container {
-        width: 90%;
-        padding: 35px 7%;
+        width: 92%;
+        padding: 38px 7%;
+        margin: 45px auto;
+    }
+
+    .article h1,
+    .article-container h2 {
+        font-size: 42px;
+    }
+
+    .article-content,
+    .blog-content {
+        font-size: 16px;
+        line-height: 2;
+    }
+
+    .article-navigation {
+        flex-direction: column;
+    }
+
+    footer {
+        font-size: 12px;
     }
 }
