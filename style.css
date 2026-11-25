@@ -1,18 +1,18 @@
 /* ==========================================================================
-   THE PRABHAKAR HAVELI ARCHIVES — EDITORIAL & UNCANNY BROADSHEET
+   THE PRABHAKAR HAVELI ARCHIVES — BROADSHEET NEWSPAPER EDITION
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap');
 
 :root {
-    --bg-paper: #f1ede4;          /* Aged newsprint / bone */
-    --bg-recessed: #e6dfd2;       /* Dossier card background */
-    --ink-primary: #161514;       /* Primary editorial ink */
-    --ink-secondary: #383530;     /* Body copy secondary */
-    --ink-muted: #5c574e;         /* Archival metadata gray */
-    --accent-crimson: #741414;    /* Dried vermilion / blood */
-    --border-strong: #161514;     /* Strong editorial rules */
-    --border-hairline: #c4bbb0;   /* Subtle grid dividers */
+    --bg-paper: #efe9dc;          /* Aged broadsheet newsprint */
+    --bg-recessed: #e3dac8;       /* Recessed editorial box */
+    --ink-primary: #141312;       /* Deep carbon ink */
+    --ink-secondary: #2f2c27;     /* Rich dark reading ink */
+    --ink-muted: #585249;         /* Muted newspaper caption gray */
+    --accent-crimson: #761212;    /* Editorial red / broadsheet accent */
+    --border-strong: #141312;     /* Crisp ink rule */
+    --border-hairline: #bdb29e;   /* Column / row divider */
 
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Newsreader', Georgia, serif;
@@ -29,100 +29,114 @@ html {
     scroll-behavior: smooth;
     background-color: var(--bg-paper);
     color: var(--ink-primary);
-    font-size: 18px;
+    font-size: 19px;
 }
 
 body {
     font-family: var(--font-body);
     background-color: var(--bg-paper);
     color: var(--ink-primary);
-    line-height: 1.8;
-    font-size: 1.08rem;
+    line-height: 1.85;
+    font-size: 1.15rem;
     overflow-x: hidden;
     position: relative;
 }
 
-/* Subtle analog paper & film grain texture */
+/* Subtle newsprint & film grain overlay */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.04;
+    opacity: 0.045;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* ==========================================================================
-   MASTHEAD & SITE HEADER (index.html + blog1-3.html)
+   NEWSPAPER MASTHEAD & EDITION BAR
    ========================================================================== */
 
 .masthead,
 .site-header {
+    width: 94%;
+    max-width: 1480px;
+    margin: 0 auto;
     text-align: center;
-    padding: 2.5rem 4% 0;
-    border-bottom: 2px solid var(--border-strong);
+    padding: 1.4rem 0 0;
     background-color: var(--bg-paper);
 }
 
+/* Newspaper top dateline strip */
 .masthead-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent-crimson);
-    margin-bottom: 0.75rem;
+    font-weight: 700;
+    padding: 0.65rem 1rem;
+    border-top: 3px double var(--border-strong);
+    border-bottom: 1px solid var(--border-hairline);
+    margin-bottom: 1.2rem;
 }
 
 .site-name,
 .site-header h1 {
     display: inline-block;
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 5vw, 4.5rem);
+    font-size: clamp(2.8rem, 5.6vw, 4.9rem);
     font-weight: 700;
-    letter-spacing: 0.01em;
-    line-height: 1.05;
+    letter-spacing: 0.02em;
+    line-height: 1.02;
     color: var(--ink-primary);
     text-decoration: none;
     text-transform: uppercase;
-    transition: text-shadow 0.4s ease;
+    transition: text-shadow 0.35s ease, letter-spacing 0.35s ease;
 }
 
 .site-name:hover,
 .site-header h1:hover {
-    text-shadow: 2px 0 0 rgba(116, 20, 20, 0.35), -2px 0 0 rgba(22, 21, 20, 0.2);
+    letter-spacing: 0.035em;
+    text-shadow: 2px 0 0 rgba(118, 18, 18, 0.32), -2px 0 0 rgba(20, 19, 18, 0.18);
 }
 
 .tagline,
 .site-subtitle {
     font-family: var(--font-mono);
-    font-size: 0.88rem;
-    letter-spacing: 0.14em;
+    font-size: 0.92rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--ink-muted);
-    margin: 0.85rem 0 2rem;
+    margin: 0.9rem 0 1.4rem;
 }
 
-/* Navigation Bar */
+/* Broadsheet Navigation Strip */
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2.5rem;
-    padding: 1.15rem 1rem;
-    border-top: 1px solid var(--border-hairline);
+    gap: 2.8rem;
+    padding: 1.05rem 1rem;
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 3px double var(--border-strong);
+    background-color: var(--bg-recessed);
 }
 
 nav a {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
-    letter-spacing: 0.14em;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--ink-primary);
     position: relative;
-    transition: color 0.25s ease;
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
@@ -135,7 +149,7 @@ nav a::after {
     left: 0;
     bottom: -4px;
     width: 0;
-    height: 1.5px;
+    height: 2px;
     background-color: var(--accent-crimson);
     transition: width 0.25s ease;
 }
@@ -145,28 +159,29 @@ nav a:hover::after {
 }
 
 /* ==========================================================================
-   SHARED EDITORIAL LABELS & LINKS
+   SHARED LABELS & LINKS
    ========================================================================== */
 
 .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.14em;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--accent-crimson);
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.75rem;
     font-weight: 700;
 }
 
 .read-link {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--ink-primary);
-    border-bottom: 1.5px solid var(--accent-crimson);
+    border-bottom: 2px solid var(--accent-crimson);
     padding-bottom: 3px;
     margin-top: 0.5rem;
     transition: color 0.2s ease, padding-left 0.2s ease;
@@ -174,154 +189,159 @@ nav a:hover::after {
 
 .read-link:hover {
     color: var(--accent-crimson);
-    padding-left: 6px;
+    padding-left: 7px;
 }
 
 /* ==========================================================================
-   HOMEPAGE BROADSHEET GRID (index.html)
+   HOMEPAGE BROADSHEET LAYOUT (index.html)
    ========================================================================== */
 
 .page-layout {
-    width: 92%;
-    max-width: 1440px;
+    width: 94%;
+    max-width: 1480px;
     margin: 0 auto;
-    padding: 3.5rem 0 5rem;
+    padding: 3rem 0 5rem;
     display: grid;
-    grid-template-columns: 2.15fr 1fr;
-    gap: 3.5rem;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 3rem;
     align-items: start;
 }
 
 .main-column {
     padding-right: 3rem;
-    border-right: 1px solid var(--border-hairline);
+    border-right: 1px solid var(--border-strong);
 }
 
-/* Welcome / Editorial Statement */
+/* Lead Editorial Statement */
 .welcome-section {
-    padding-bottom: 3rem;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 2.8rem;
+    margin-bottom: 2.8rem;
+    border-bottom: 2px solid var(--border-strong);
 }
 
 .welcome-section h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 4.4vw, 4rem);
-    font-weight: 600;
-    line-height: 1.08;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.9rem, 4.8vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1.4rem;
     color: var(--ink-primary);
 }
 
 .welcome-section p {
-    font-size: 1.18rem;
-    line-height: 1.85;
+    font-size: 1.28rem;
+    line-height: 1.88;
     color: var(--ink-secondary);
-    margin-bottom: 1.15rem;
-    max-width: 72ch;
+    margin-bottom: 1.2rem;
+    max-width: 74ch;
 }
 
-/* Section Divider Bars */
+/* Newspaper Section Rule Header */
 .section-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.6rem;
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ink-muted);
-    padding-bottom: 0.7rem;
+    color: var(--ink-primary);
+    padding: 0.55rem 0;
+    border-top: 2px solid var(--border-strong);
     border-bottom: 1px solid var(--border-strong);
     margin-bottom: 1.8rem;
 }
 
-/* Featured Investigation Box */
+/* Featured Case Box */
 .featured-section {
-    margin-bottom: 3.5rem;
-    padding-bottom: 3rem;
+    margin-bottom: 3.2rem;
+    padding-bottom: 2.8rem;
     border-bottom: 1px solid var(--border-hairline);
 }
 
 .featured-content {
     background-color: var(--bg-recessed);
     border: 1px solid var(--border-strong);
+    box-shadow: 5px 5px 0 var(--border-hairline);
     padding: 2.5rem;
     position: relative;
 }
 
 .featured-content::after {
-    content: "UNSOLVED // ARCHIVE";
+    content: "CASE FILE · NO. 001";
     position: absolute;
     top: 1.4rem;
     right: 1.6rem;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.82rem;
+    font-weight: 700;
     letter-spacing: 0.14em;
     color: var(--accent-crimson);
-    border: 1px solid var(--accent-crimson);
-    padding: 3px 9px;
+    border: 1.5px solid var(--accent-crimson);
+    padding: 4px 10px;
 }
 
 .featured-content h2 {
     font-family: var(--font-display);
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.08;
     margin-bottom: 1rem;
-    padding-right: 11rem;
+    padding-right: 12rem;
 }
 
 .featured-content p {
-    font-size: 1.12rem;
-    line-height: 1.8;
+    font-size: 1.22rem;
+    line-height: 1.84;
     color: var(--ink-secondary);
-    margin-bottom: 1.1rem;
+    margin-bottom: 1.15rem;
 }
 
-/* Chronological Field Reports List */
+/* Field Reports List */
 .section-title {
     font-family: var(--font-display);
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 2.7rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
 }
 
 .section-intro {
     font-style: italic;
     color: var(--ink-muted);
-    font-size: 1.15rem;
-    margin-bottom: 2.2rem;
+    font-size: 1.24rem;
+    margin-bottom: 2rem;
 }
 
 .report-entry {
     display: grid;
-    grid-template-columns: 78px 1fr;
+    grid-template-columns: 84px 1fr;
     gap: 1.5rem;
-    padding: 2rem 0;
+    padding: 2.1rem 0;
     border-top: 1px solid var(--border-hairline);
+    transition: background-color 0.2s ease;
 }
 
 .report-entry:last-child {
-    border-bottom: 1px solid var(--border-hairline);
+    border-bottom: 2px solid var(--border-strong);
 }
 
 .report-number {
     font-family: var(--font-display);
-    font-size: 3.3rem;
-    font-weight: 500;
+    font-size: 3.6rem;
+    font-weight: 700;
     line-height: 0.9;
     color: var(--accent-crimson);
 }
 
 .report-details h3 {
     font-family: var(--font-display);
-    font-size: 1.95rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.16;
+    margin-bottom: 0.7rem;
 }
 
 .report-details h3 a {
@@ -336,41 +356,41 @@ nav a:hover::after {
 }
 
 .report-details p {
-    font-size: 1.1rem;
-    line-height: 1.78;
+    font-size: 1.18rem;
+    line-height: 1.82;
     color: var(--ink-secondary);
     margin-bottom: 0.9rem;
 }
 
 /* ==========================================================================
-   SIDEBAR CASE FILE DOSSIER (index.html)
+   SIDEBAR NEWSPAPER COLUMN (index.html)
    ========================================================================== */
 
 .sidebar {
     position: sticky;
-    top: 2rem;
+    top: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 2.2rem;
 }
 
 .sidebar-section {
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border-hairline);
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border-strong);
 }
 
 .sidebar-section h2 {
     font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 2.15rem;
+    font-weight: 700;
     margin-bottom: 1.2rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-strong);
+    border-bottom: 2px solid var(--border-strong);
 }
 
 .sidebar-section p {
     font-family: var(--font-mono);
-    font-size: 0.92rem;
+    font-size: 0.98rem;
     line-height: 1.65;
     color: var(--ink-secondary);
     margin-bottom: 1.1rem;
@@ -380,7 +400,7 @@ nav a:hover::after {
     color: var(--ink-primary);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
 }
 
 .archive-list {
@@ -388,14 +408,15 @@ nav a:hover::after {
 }
 
 .archive-list li {
-    border-bottom: 1px dashed var(--border-hairline);
+    border-bottom: 1px solid var(--border-hairline);
 }
 
 .archive-list a {
     display: block;
-    padding: 0.85rem 0;
+    padding: 0.9rem 0;
     font-family: var(--font-mono);
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 700;
     text-decoration: none;
     color: var(--ink-primary);
     transition: color 0.2s ease, padding-left 0.2s ease;
@@ -406,42 +427,46 @@ nav a:hover::after {
     padding-left: 8px;
 }
 
-/* Investigator Marginalia Box */
+/* Editorial Note / Column Box */
 .sidebar-note {
     background-color: var(--bg-recessed);
-    border: 1px solid var(--border-strong);
-    padding: 1.6rem;
+    border-top: 3px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
+    border-left: 1px solid var(--border-hairline);
+    border-right: 1px solid var(--border-hairline);
+    padding: 1.75rem;
 }
 
 .sidebar-note p:last-child {
     font-family: var(--font-body);
-    font-size: 1.06rem;
+    font-size: 1.15rem;
     font-style: italic;
     color: var(--ink-secondary);
-    line-height: 1.72;
+    line-height: 1.78;
 }
 
 /* ==========================================================================
-   INDIVIDUAL FIELD REPORT PAGES (blog1.html, blog2.html, blog3.html)
+   BLOG / FIELD REPORT PAGES (blog1.html, blog2.html, blog3.html)
    ========================================================================== */
 
 .article-container {
-    width: 92%;
-    max-width: 980px;
+    width: 94%;
+    max-width: 1060px;
     margin: 0 auto;
     padding: 3.5rem 0 5rem;
 }
 
 .article-container > .eyebrow {
     text-align: center;
+    font-size: 0.95rem;
     margin-bottom: 0.85rem;
 }
 
 .article-container > h2 {
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 5vw, 4.1rem);
+    font-size: clamp(2.9rem, 5.4vw, 4.6rem);
     font-weight: 700;
-    line-height: 1.08;
+    line-height: 1.05;
     text-align: center;
     color: var(--ink-primary);
     margin-bottom: 1rem;
@@ -449,226 +474,21 @@ nav a:hover::after {
 
 .article-meta {
     font-family: var(--font-mono);
-    font-size: 0.88rem;
-    letter-spacing: 0.14em;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     text-align: center;
     color: var(--ink-muted);
-    padding-bottom: 2.2rem;
+    padding-bottom: 2rem;
     margin-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border-hairline);
+    border-top: 1px solid var(--border-hairline);
+    border-bottom: 2px solid var(--border-strong);
+    padding-top: 1rem;
 }
 
-/* Archival Evidence Photography Treatment */
+/* Archival Photograph Frame */
 .article-image {
     margin: 0 0 3rem;
-    padding: 12px;
+    padding: 14px;
     background-color: var(--bg-recessed);
-    border: 1px solid var(--border-strong);
-}
-
-.article-image img {
-    display: block;
-    width: 100%;
-    max-height: 540px;
-    object-fit: cover;
-    filter: grayscale(80%) contrast(115%) sepia(10%);
-    transition: filter 0.6s ease;
-}
-
-.article-image:hover img {
-    filter: grayscale(30%) contrast(122%) sepia(6%);
-}
-
-/* Longform Literary Essay Typography */
-.blog-content {
-    font-family: var(--font-body);
-    font-size: 1.22rem;
-    line-height: 1.92;
-    color: var(--ink-primary);
-}
-
-.blog-content p {
-    margin-bottom: 1.65rem;
-}
-
-/* Editorial Dropcap on the Opening Paragraph */
-.blog-content p:first-of-type::first-letter {
-    float: left;
-    font-family: var(--font-display);
-    font-size: 4.8rem;
-    font-weight: 700;
-    line-height: 0.8;
-    padding-right: 0.8rem;
-    padding-top: 0.25rem;
-    color: var(--accent-crimson);
-}
-
-/* Sign-off line ("Until next time.") */
-.blog-content p:last-of-type {
-    font-family: var(--font-mono);
-    font-size: 0.98rem;
-    letter-spacing: 0.08em;
-    color: var(--accent-crimson);
-    margin-top: 2.5rem;
-}
-
-/* Article Footer & Prev/Next Navigation */
-.article-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 2px solid var(--border-strong);
-}
-
-.article-footer > p {
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    letter-spacing: 0.16em;
-    text-align: center;
-    color: var(--ink-muted);
-    margin-bottom: 2rem;
-}
-
-.article-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-hairline);
-}
-
-.article-navigation a {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--ink-primary);
-    padding: 0.75rem 1.3rem;
-    border: 1px solid var(--border-strong);
-    background-color: transparent;
-    transition: all 0.25s ease;
-}
-
-.article-navigation a:hover {
-    background-color: var(--ink-primary);
-    color: var(--bg-paper);
-}
-
-/* ==========================================================================
-   SITE FOOTER
-   ========================================================================== */
-
-footer {
-    text-align: center;
-    padding: 3rem 4%;
-    border-top: 2px solid var(--border-strong);
-    background-color: var(--bg-recessed);
-    color: var(--ink-muted);
-}
-
-.footer-title {
-    font-family: var(--font-display);
-    font-size: 1.55rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--ink-primary);
-    margin-bottom: 0.5rem;
-}
-
-footer p {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.45rem;
-}
-
-.footer-small {
-    color: var(--accent-crimson);
-    margin-top: 0.6rem;
-}
-
-/* Progressive psychological shift in Field Report 003 */
-body.descent {
-    --bg-paper: #eae3d5;
-    --accent-crimson: #7e1111;
-}
-
-body.descent .article-image img {
-    filter: grayscale(95%) contrast(130%) brightness(88%);
-}
-
-body.descent .blog-content p:nth-child(9),
-body.descent .blog-content p:nth-child(10),
-body.descent .blog-content p:nth-child(12),
-body.descent .blog-content p:nth-child(18),
-body.descent .blog-content p:nth-child(22) {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    font-style: italic;
-    color: var(--accent-crimson);
-    padding-left: 1.2rem;
-    border-left: 2.5px solid var(--accent-crimson);
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN
-   ========================================================================== */
-
-@media (max-width: 960px) {
-    .page-layout {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .main-column {
-        padding-right: 0;
-        border-right: none;
-        border-bottom: 2px solid var(--border-strong);
-        padding-bottom: 3rem;
-    }
-
-    .sidebar {
-        position: static;
-    }
-
-    .featured-content h2 {
-        padding-right: 0;
-    }
-
-    .featured-content::after {
-        position: static;
-        display: inline-block;
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 600px) {
-    html {
-        font-size: 16px;
-    }
-
-    nav {
-        gap: 1.2rem;
-    }
-
-    .report-entry {
-        grid-template-columns: 1fr;
-        gap: 0.4rem;
-    }
-
-    .featured-content {
-        padding: 1.6rem 1.2rem;
-    }
-
-    .article-navigation {
-        flex-direction: column;
-    }
-
-    .article-navigation a {
-        width: 100%;
-        text-align: center;
-    }
-}
+    border:
